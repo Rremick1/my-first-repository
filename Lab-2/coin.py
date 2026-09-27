@@ -7,16 +7,17 @@ import random
 
 class Coin:
 
-    def __init__(self, heads_sideup, tails_sideup):
-        self.heads_sideup = heads_sideup
-        self.tails_sideup = tails_sideup
+    def __init__(self, sideup):
+
+        self.__sideup = sideup
+
 
     def toss(self):
         number = random.randint(0, 1)
-        if number == 0:
-            self.sideup = self.heads_sideup
+        if (number == 1):
+            self.__sideup = "Heads"
         else:
-            self.sideup = self.tails_sideup
+            self.__sideup = "Tails"
 
     def get_sideup(self):
-        return self.sideup
+        return self.__sideup
