@@ -3,19 +3,26 @@
     The purpose of this program is to create an organized user clairified grocery list.
     9/27/25
 """
-from User import UserList
-from groceries import Groceries 
+
+
+from glist import Glist
 
 def main():
-    user_list = UserList()
-    user_name = input("Enter your name: ")
-    user_list.add_user(user_name)
 
-    groceries = Groceries()
-    grocery_item = input("Enter a grocery item: ")
-    grocery_quantity = int(input("Enter the quantity: "))
-    groceries.add_item(grocery_item, grocery_quantity)
+    answer: str =input("Would you like to add to the list (yes/no)?: ")
+    groceries = Glist()
+    while answer == "yes" or answer == "Yes":
+        user_name = input("Enter your name: ")
+        grocery_item = input("Enter a grocery item: ")
+        grocery_quantity = int(input("Enter the quantity: "))
+        groceries.add_item(user_name, grocery_item, grocery_quantity)
+        for name, item, quantity in groceries.items:
+            print(f" {name} has added {item}: {quantity} to the list")
+        answer = input("add another item (yes/no)?: ")
 
+    print("Your grocery list:")
+    for name, item, quantity in groceries.items:
+        print(f" {name}: {item}: {quantity} to the list")
 
 
 
